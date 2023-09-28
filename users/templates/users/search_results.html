@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'shared_layout/base.html' %}
+
+{%block title%}
+    search
+{%endblock title%}
+
+{%block contents%}
+    {%if error%}
+        <div class="alert alert-danger" role="alert">
+            {{error}}
+        </div>
+    {%endif%}
+
+    <h3>Showing results for "{{ query }}"</h3>
+    {% for n in news %}
+        <div class="card-body">
+            <h5 class="card-title">{{ n.title }}</h5>
+            <p class="card-text">{{ n.description }}</p>
+            <a href={{ n.url }} class="btn btn-primary">Read More</a>
+        </div>
+    {% endfor %}
+
+{%endblock contents%}
